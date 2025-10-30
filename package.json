@@ -1,0 +1,31 @@
+{
+  "name": "emby-trailer-requester",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "node .",
+    "dev": "nodemon ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oonqt/emby-trailer-requester.git"
+  },
+  "keywords": [],
+  "author": "Rechigo",
+  "license": "MIT",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/oonqt/emby-trailer-requester/issues"
+  },
+  "homepage": "https://github.com/oonqt/emby-trailer-requester#readme",
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  },
+  "dependencies": {
+    "axios": "^1.13.1",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "morgan": "^1.10.1"
+  }
+}
