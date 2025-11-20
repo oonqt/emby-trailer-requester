@@ -9,7 +9,6 @@ const IS_DEV = process.env.NODE_ENV === 'development'
 if (IS_DEV) dotenv.config();
 
 const {
-    DEBUG,
     PORT,
     EMBY_URL,
     EMBY_KEY,
@@ -20,7 +19,7 @@ const {
     RADARR_TAG,
 } = process.env;
 
-const log = new Logger(pkg.name, DEBUG === true);
+const log = new Logger(pkg.name);
 const app = express();
 const radarrApi = axios.create({
     baseURL: `${RADARR_URL}/api/v3`,
