@@ -96,7 +96,12 @@ app.post('/', async (req, res, next) => {
             return sendEmbyMessage(user.Id, "Movie already requested. Try searching for it or check back later.").catch(log.error)
         }
         
-        log.error(err);
+        if (err?.response?.data) {
+            log.error(err.response.data);
+        } else {
+            log.error(err);
+        }
+
         sendEmbyMessage(user.Id, "Failed to request download. Please try favoriting again.").catch(log.error);
     }
 });

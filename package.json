@@ -9,16 +9,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/oonqt/emby-trailer-requester.git"
+    "url": "git+https://github.com/oonqt/emby-trailer-requests.git"
   },
   "keywords": [],
   "author": "Rechigo",
   "license": "MIT",
   "type": "module",
   "bugs": {
-    "url": "https://github.com/oonqt/emby-trailer-requester/issues"
+    "url": "https://github.com/oonqt/emby-trailer-requests/issues"
   },
-  "homepage": "https://github.com/oonqt/emby-trailer-requester#readme",
+  "homepage": "https://github.com/oonqt/emby-trailer-requests#readme",
   "devDependencies": {
     "nodemon": "^3.1.10"
   },
