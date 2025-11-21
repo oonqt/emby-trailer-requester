@@ -107,15 +107,23 @@ app.post('/', async (req, res, next) => {
 });
 
 async function sendEmbyMessage(userId, message) {
-    const sessions = (await embyApi('/Sessions')).data;
-    const activeUserSessions = sessions.filter(session =>
-        session.UserId === userId
-        && (new Date() - new Date(session.LastActivityDate)) < 30000
-    );
+    return new Promise(async (resolve, reject) => {
+        try {
+            const sessions = (await embyApi('/Sessions')).data;
+            const activeUserSessions = sessions.filter(session =>
+                session.UserId === userId
+                && (new Date() - new Date(session.LastActivityDate)) < 30000
+            );
+        
+            for (const session of activeUserSessions) {
+                await embyApi.post(`/Sessions/${session.Id}/Message?Header=Trailer Download System&Text=${message}`);
+            }
 
-    for (const session of activeUserSessions) {
-        await embyApi.post(`/Sessions/${session.Id}/Message?Header=Trailer Download System&Text=${message}`);
-    }
+            resolve();
+        } catch (err) {
+            reject(err);
+        }
+    });
 }
 
 app.use((_, res) => res.send({ message: "No action taken" }));
